@@ -56,7 +56,7 @@ class ChatViewController: UIViewController, UITableViewDelegate , UITableViewDat
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "customMessageCell", for: indexPath) as! CustomMessageCell
         
-        let messageArray = ["First message", "Second Message", "Puto el que lea"]
+        let messageArray = ["First message", "Second Message", "bug fix"]
         
         cell.messageBody.text = messageArray[indexPath.row]
         
