@@ -23,7 +23,6 @@ class LogInViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
     }
-
    
     @IBAction func logInPressed(_ sender: AnyObject) {
 
@@ -31,9 +30,11 @@ class LogInViewController: UIViewController {
         //TODO: Log in the user
         Auth.auth().signIn(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
            
+            // De encontrar un error lo muestra en la consola
             if error != nil {
                 print(error!)
             }
+            // Al usuario hacer log ig correctamente lo llevara a la pagina del chat.
             else {
                 print("Log in successful!")
                 
