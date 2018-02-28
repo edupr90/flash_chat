@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 
 class LogInViewController: UIViewController {
@@ -26,6 +27,8 @@ class LogInViewController: UIViewController {
    
     @IBAction func logInPressed(_ sender: AnyObject) {
 
+        // Añade una animacion para esperar a lo que se autentica el usuario.
+        SVProgressHUD.show()
         
         //TODO: Log in the user
         Auth.auth().signIn(withEmail: emailTextfield.text!, password: passwordTextfield.text!) { (user, error) in
@@ -37,6 +40,9 @@ class LogInViewController: UIViewController {
             // Al usuario hacer log ig correctamente lo llevara a la pagina del chat.
             else {
                 print("Log in successful!")
+                
+                // Elimina la animacion ya cuando el usario fue autenticado exitosamente.
+                SVProgressHUD.dismiss()
                 
                 self.performSegue(withIdentifier: "goToChat", sender: self)
             }
